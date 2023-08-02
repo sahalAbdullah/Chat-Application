@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "579804409078",
+    "project_id": "cloudproject-599df",
+    "storage_bucket": "cloudproject-599df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579804409078:android:929284db2e897fe95790d7",
+        "android_client_info": {
+          "package_name": "com.cloudpractice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579804409078-sqi714otfok898kfk1ttlns4csmqoke3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHRTbPJZ2qrga6KC0PDNFtw4NdfOaLOGc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579804409078-sqi714otfok898kfk1ttlns4csmqoke3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">cloudPractice</string>
+    <string name="facebook_app_id">1020959935574695</string>
+    <string name="fb_login_protocol_scheme">fb1020959935574695</string>
+    <string name="facebook_client_token">ec7ae81f8387bbe34560af11d4a6bd63</string>
+
+
+</resources>
