@@ -11,6 +11,7 @@ import {Screens} from '../helpers/screenConstant';
 import {cloudStorageData} from '../services/auth/auth';
 import {widthToDp, heightToDp, responsiveFontSize} from '../utils/responsive';
 import WhiteHeader from '../components/header/WhiteHeader';
+import {usersData} from '../services/auth/CloudUsersData';
 
 const Home = () => {
   // const uid: string | undefined = AsyncStorage.getItem('userId');
@@ -33,8 +34,10 @@ const Home = () => {
       navigation.replace(Screens.login);
     }
     setName(name);
+    usersData();
     setLoading(false);
   };
+  const getAllUserData = () => {};
   return (
     <Layout>
       {name ? <WhiteHeader name={name} /> : null}
