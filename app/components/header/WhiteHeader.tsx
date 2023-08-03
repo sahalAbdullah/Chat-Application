@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {View, Text, HStack, Pressable} from 'native-base';
+import {View, Text, HStack, Pressable, VStack} from 'native-base';
 import LogoutSvg from '../../assets/svg/LogoutSvg';
 import {
   heightToDp,
@@ -25,16 +25,21 @@ const WhiteHeader = (props: IProps) => {
     navigation.replace(Screens.login);
   };
   return (
-    <HStack style={styles.container}>
-      <Text style={styles.highlight}>Welcome, {props.name}</Text>
-      <Pressable onPress={logoutHandler}>
-        {({isPressed}) => (
-          <View style={{opacity: isPressed ? 0.45 : 1}}>
-            <LogoutSvg width={8} height={8} />
-          </View>
-        )}
-      </Pressable>
-    </HStack>
+    <VStack>
+      <HStack style={styles.container}>
+        <Text style={styles.highlight}>Welcome, {props.name}</Text>
+        <Pressable onPress={logoutHandler}>
+          {({isPressed}) => (
+            <View style={{opacity: isPressed ? 0.45 : 1}}>
+              <LogoutSvg width={8} height={8} />
+            </View>
+          )}
+        </Pressable>
+      </HStack>
+      <View style={styles.chat}>
+        <Text style={styles.highlight}>Chat Here 👏</Text>
+      </View>
+    </VStack>
   );
 };
 
@@ -53,5 +58,14 @@ const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
     fontSize: responsiveFontSize(16),
+  },
+  chat: {
+    width: widthToDp(100),
+    height: heightToDp(5),
+    backgroundColor: Colors.white,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    marginBottom: 1,
   },
 });

@@ -13,6 +13,7 @@ import {widthToDp, heightToDp, responsiveFontSize} from '../utils/responsive';
 import WhiteHeader from '../components/header/WhiteHeader';
 import {usersData} from '../services/auth/CloudUsersData';
 import {Colors} from '../utils/color';
+import ForwardArrow from '../assets/svg/ForwardArrow';
 let data: {id: string; name: string}[] = [];
 let uid: string = '';
 const Home = () => {
@@ -36,9 +37,13 @@ const Home = () => {
       navigation.replace(Screens.login);
     }
     data = await usersData();
-    console.log('Data', data);
+    // console.log('Data', data);
     setName(name);
     setLoading(false);
+  };
+  const pressHandler = (data: {id: string; name: string}) => {
+    console.log('Data', data, uid, name);
+    navigation.navigate(Screens.chat, {data, uid, name});
   };
   return (
     <Layout>
@@ -51,16 +56,17 @@ const Home = () => {
               height={heightToDp(40)}
               data={data}
               renderItem={({item}) => (
-                <Pressable>
+                <Pressable onPress={() => pressHandler(item)}>
                   {({isPressed}) => (
                     <View>
                       {item.id === uid ? null : (
-                        <View
+                        <HStack
                           py={3}
                           bg={Colors.white}
                           mb={0.9}
-                          justifyContent={'center'}
-                          opacity={isPressed ? 0.55 : 1}>
+                          justifyContent={'space-between'}
+                          opacity={isPressed ? 0.55 : 1}
+                          px={5}>
                           <Text
                             style={{
                               color: Colors.textBlack,
@@ -71,7 +77,8 @@ const Home = () => {
                             }}>
                             {item.name}
                           </Text>
-                        </View>
+                          <ForwardArrow width={8} height={8} />
+                        </HStack>
                       )}
                     </View>
                   )}
