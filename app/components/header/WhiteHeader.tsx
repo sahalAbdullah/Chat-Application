@@ -11,14 +11,17 @@ import {Colors} from '../../utils/color';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useNavigation} from '@react-navigation/native';
 import {Screens} from '../../helpers/screenConstant';
+import auth from '@react-native-firebase/auth';
 
 interface IProps {
   name: string;
 }
 const WhiteHeader = (props: IProps) => {
   const navigation = useNavigation<any>();
+
   const logoutHandler = async () => {
     await AsyncStorage.clear();
+    await auth().signOut();
     navigation.replace(Screens.login);
   };
   return (
@@ -45,6 +48,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 20,
+    marginBottom: 1,
   },
   highlight: {
     fontWeight: '700',
